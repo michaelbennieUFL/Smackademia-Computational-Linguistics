@@ -1,0 +1,69 @@
+---
+format:
+  live-revealjs:
+    theme: default
+title: Example Slides
+webr:
+  cell-options:
+    autorun: true
+    fig-width: 11
+    fig-height: 5
+---
+
+{{< include ../_extensions/live/_knitr.qmd >}}
+
+## Editable examples
+
+```{webr}
+plot(rnorm(1000))
+```
+
+## Scrollable output
+
+```{webr}
+mod <- lm(mpg ~ cyl, data = mtcars)
+plot(mod)
+summary(mod)
+```
+
+## Read Only
+
+```{webr}
+#| edit: false
+mod <- lm(mpg ~ cyl, data = mtcars)
+summary(mod)
+```
+
+## Exercises
+
+```{webr}
+#| exercise: ex1
+#| caption: Exercise 1
+1 + 2 + 3 + ______
+```
+
+```{webr}
+#| exercise: ex1
+#| check: true
+if (.result == 10) {
+  list(message = "Great work!", correct = TRUE)
+} else {
+  list(message = "That's incorrect.", correct = FALSE)
+}
+```
+
+::: { .hint exercise="ex1" }
+
+You should make the expression sum to 10.
+
+:::
+
+::: { .solution exercise="ex1" }
+
+**Solution:**
+
+```r
+1 + 2 + 3 + 4
+```
+
+:::
