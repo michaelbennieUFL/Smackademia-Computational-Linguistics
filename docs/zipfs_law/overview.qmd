@@ -1,0 +1,130 @@
+---
+title: Zipf's Law
+subtitle: An introduction to how we will use R and Python to extract and analyze linguistic information from classic texts.
+format: live-html
+engine: knitr
+webr:
+  packages:
+    - dplyr
+toc: true
+---
+
+{{< include ../_extensions/live/_knitr.qmd >}}
+{{< include ../_extensions/live/_gradethis.qmd >}}
+
+# Overview
+
+## 1. What Computers Allow You to Do
+
+Computers have completely transformed the field of linguistics by enabling us to process and analyze vast amounts of language data at unprecedented speeds. In the past, linguists painstakingly examined printed texts and manually created lists, indexes, and concordances. Today, with modern programming languages such as **Python** and **R**, we can automatically analyze entire corpora—ranging from a few pages to millions of documents—in just seconds.
+
+Using computational tools, we can:
+
+- **Store and Retrieve Data:** Save entire data sets in memory and recall them at a moment’s notice.
+
+- **Perform Complex Calculations:** Conduct statistical analysis, run simulations, and implement machine learning models to uncover hidden patterns in language.
+
+- **Automate Repetitive Tasks:** Process and transform data consistently without human error, thereby increasing both efficiency and accuracy.
+
+- **Visualize Information:** Create compelling graphs and charts that make trends and relationships in linguistic data immediately apparent.
+
+Consider this practical example: A researcher studying Shakespeare's vocabulary could manually count word frequencies in _Romeo and Juliet_ (approx. 25,000 words) over weeks. Using Python's NLTK or R's tidytext packages, this analysis completes in milliseconds, freeing the scholar to focus on interpretation rather than enumeration.
+
+
+## 2. Significance for a Linguist
+
+For linguists, the advent of computational methods has opened up new avenues of inquiry and research. Programming is no longer just about crunching numbers; it’s a way to unlock deeper insights into language itself.
+
+- **Rigor and Reproducibility:** By scripting your analyses, you create a permanent, reproducible record of your work. This reproducibility is crucial when testing hypotheses or comparing linguistic patterns across multiple texts.
+- **Scalability:** Whether you are analyzing a sonnet or a corpus of millions of tweets, the same computational techniques apply. This scalability enables linguists to generalize findings from small-scale studies to large, diverse data sets.
+- **Objectivity:** Computerized methods impose strict, consistent rules on data analysis. This minimizes subjective bias, ensuring that your conclusions are supported by quantitative evidence.
+- **Enhanced Discovery:** Computational tools can reveal subtle patterns in language—such as frequency distributions, collocations, and syntactic structures—that might be missed by manual analysis.
+
+By embracing these methods, linguists can approach language with a level of precision and insight that was previously unattainable.
+
+## 3. R and Python on Two Classic Texts
+
+In the chapters ahead, we will harness the power of both R and Python to dissect and explore linguistic features in two landmark works of literature:
+
+1. **Romeo and Juliet** by William Shakespeare
+   [(Project Gutenberg)](https://www.gutenberg.org/ebooks/1513.txt.utf-8)
+
+2. **Metamorphosis** by Franz Kafka
+   [(Project Gutenberg)](https://www.gutenberg.org/cache/epub/5200/pg5200.txt)
+
+
+By the end of our exploration, you will have a baseline set of tools to analyze any text and derive meaningful linguistic insights using modern computational methods.
+
+
+## 4. Quick Example: Counting Words in the Title "Romeo and Juliet"
+
+Below is a simple example that shows how to count the number of words in the title "Romeo and Juliet." Notice that we provide one solution in Python and one in R.
+
+
+#### Output
+
+::: { .panel-tabset }
+
+### R
+
+```{webr}
+#| exercise: count_title_r
+title <- "Romeo and Juliet"
+# How many words are in the title "Romeo and Juliet"?
+number_of_words <- ______
+number_of_words
+```
+
+```{webr}
+#| exercise: count_title_r
+#| check: true
+gradethis::grade_this_code()
+```
+
+::: {.solution exercise="count_title_r"}
+**Solution:**
+
+```{webr}
+#| exercise: count_title_r
+#| solution: true
+title <- "Romeo and Juliet"
+number_of_words <- length(strsplit(title, "\\s+")[[1]])
+number_of_words
+```
+:::
+
+### Python
+
+```{pyodide}
+#| exercise: count_title_py
+title = "Romeo and Juliet"
+# How many words are in the title "Romeo and Juliet"?
+number_of_words = ______
+number_of_words
+```
+
+```{pyodide}
+#| exercise: count_title_py
+#| check: true
+expected = 3
+feedback = None
+if number_of_words == expected:
+  feedback = { "correct": True, "message": "Nice work! The title 'Romeo and Juliet' contains 3 words." }
+else:
+  feedback = { "correct": False, "message": "That's incorrect, please try again." }
+feedback
+```
+
+::: {.solution exercise="count_title_py"}
+**Solution:**
+
+```{pyodide}
+#| exercise: count_title_py
+#| solution: true
+title = "Romeo and Juliet"
+number_of_words = len(title.split())
+number_of_words
+```
+:::
+
+:::
