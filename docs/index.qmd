@@ -1,7 +1,7 @@
 ---
 title: Introduction
 subtitle: WebAssembly powered code blocks and exercises for Quarto HTML documents
-format: live-html
+format: html
 engine: knitr
 toc: true
 ---
@@ -26,17 +26,3 @@ The `quarto-live` extension provides:
 
 The [webR](https://docs.r-wasm.org/webr/latest/) and [Pyodide](https://pyodide.org/en/stable/) WebAssembly engines are used to dynamically execute code in the user's web browser, so only a static web service (such as [GitHub Pages](https://pages.github.com), [Quarto Pub](https://quartopub.com), or [Netlify](https://www.netlify.com)) is required.
 
-### Demo
-
-```{webr}
-#| autorun: false
-#| completion: true
-mod <- lm(waiting ~ eruptions, data = faithful)
-plot(faithful, main = "Old Faithful Geyser Data")
-abline(mod, col = 'blue')
-summary(mod)
-```
-
-## Next steps
-
-Work through the [Getting Started](getting_started/installation.qmd) sections to learn how to install `quarto-live` and use interactive code blocks in your documents.
