@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - main
+      - ["Master"]
 
 name: Render and Publish
 jobs:
