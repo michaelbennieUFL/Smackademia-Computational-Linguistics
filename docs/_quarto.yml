@@ -1,6 +1,10 @@
 project:
   type: book
 
+
+bibliography: references.bib
+
+
 book:
   title: "Linguistics with Worked Computational Examples"
   description: "A book about using Python and R to analyze linguistic data."
@@ -32,9 +36,7 @@ book:
         - other/htmlwidgets.qmd
         - other/py_output.qmd
         - other/slides.qmd
-    - part: reference/document-yaml.qmd
-      chapters:
-        - reference/cell-options.qmd
+    - reference/references.qmd
 
 format:
   live-html:
