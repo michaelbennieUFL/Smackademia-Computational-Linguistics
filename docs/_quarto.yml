@@ -14,28 +14,11 @@ book:
   repo-subdir: "docs"
   chapters:
     - index.qmd
-    - part: getting_started/installation.qmd
+    - part: zipfs_law/overview.qmd
       chapters:
-        - getting_started/editor.qmd
-        - getting_started/packages.qmd
-        - getting_started/plotting.qmd
-    - part: exercises/exercises.qmd
-      chapters:
-        - exercises/grading.qmd
-        - exercises/gradethis.qmd
-        - exercises/environments.qmd
-    - part: interactive/reactivity.qmd
-      chapters:
-        - interactive/data.qmd
-        - interactive/dynamic.qmd
-        - interactive/hybrid.qmd
-        - interactive/dashboards.qmd
-    - part: other/tables.qmd
-      chapters:
-        - other/resources.qmd
-        - other/htmlwidgets.qmd
-        - other/py_output.qmd
-        - other/slides.qmd
+        - zipfs_law/fundamentals.qmd
+        - zipfs_law/analyzing_corpora.qmd
+        - zipfs_law/exercises.qmd
     - reference/references.qmd
 
 format:
