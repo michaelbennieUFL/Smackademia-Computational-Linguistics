@@ -1,0 +1,11 @@
+---
+title: Analyzing Corpora with Word Definitions and Zipf's Law
+subtitle: How to split text by words, build frequency dictionaries, and apply Zipf's law in Python and R, using Romeo and Juliet and Metamorphosis as examples.
+format: live-html
+engine: knitr
+webr:
+  packages:
+    - dplyr
+toc: true
+---
+{{< include ../_extensions/live/_knitr.qmd >}}

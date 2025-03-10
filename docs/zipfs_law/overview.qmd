@@ -88,7 +88,7 @@ gradethis::grade_this_code()
 #| exercise: count_title_r
 #| solution: true
 title <- "Romeo and Juliet"
-number_of_words <- length(strsplit(title, "\\s+")[[1]])
+number_of_words <- 3
 number_of_words
 ```
 :::

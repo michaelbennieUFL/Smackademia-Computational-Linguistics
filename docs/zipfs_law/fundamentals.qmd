@@ -9,3 +9,345 @@ webr:
     - dplyr
 toc: true
 ---
+{{< include ../_extensions/live/_knitr.qmd >}}
+
+
+# Fundamentals
+
+This section provides basic programming concepts that we’ll use when analyzing Romeo and Juliet and Metamorphosis. We will illustrate both **Python** and **R**.
+
+
+
+## 1. Array (List) Indexing
+
+### Explanation
+
+#### Python Example
+
+```python
+# In Python, lists store sequences of items.
+# Let's create a small list of words:
+words = ["Hello", "world", "this", "is", "Python"]
+
+# Accessing the first item:
+print(words[0])  # "Hello"
+
+# Accessing the last item:
+print(words[-1]) # "Python"
+
+# Slicing from index 1 to 3 (exclusive end):
+print(words[1:4]) # ["world", "this", "is"]
+```
+
+#### R Example
+
+```r
+# In R, vectors store sequences of items.
+# Let's create a small character vector:
+words <- c("Hello", "world", "this", "is", "R")
+
+# Accessing the first item (indexing starts at 1 in R):
+words[1]    # "Hello"
+
+# Accessing the last item:
+words[length(words)]  # "R"
+
+# Slicing from index 2 to 4:
+words[2:4]  # "world" "this" "is"
+```
+
+### Interactive Exercise
+
+Calculate the average of all of the integers from 1 to 10. Replace the `______` with the correct code.
+
+#### Output
+
+:::{.panel-tabset}
+
+## R
+
+```{webr}
+#| exercise: ex_1_r
+______(1:10)
+```
+
+```{webr}
+#| exercise: ex_1_r
+#| check: true
+if (identical(.result, mean(1:10))) {
+  list(correct = TRUE, message = "Nice work!")
+} else {
+  list(correct = FALSE, message = "That's incorrect, sorry.")
+}
+```
+
+## Python
+
+```{pyodide}
+#| exercise: ex_1_py
+n = range(1, 11)
+______
+```
+
+```{pyodide}
+#| exercise: ex_1_py
+#| check: true
+n = range(1, 11)
+mean = sum(n)/len(n)
+feedback = None
+if (result == mean):
+  feedback = { "correct": True, "message": "Nice work!" }
+else:
+  feedback = { "correct": False, "message": "That's incorrect, sorry." }
+feedback
+```
+
+:::
+
+---
+
+## 2. String Concatenation
+
+### Explanation
+
+#### Python Example
+
+```python
+greeting = "Hello"
+target = "World"
+combined = greeting + " " + target
+print(combined)  # "Hello World"
+```
+
+#### R Example
+
+```r
+greeting <- "Hello"
+target <- "World"
+combined <- paste(greeting, target)
+combined  # "Hello World"
+```
+
+### Interactive Exercise
+
+Concatenate the strings `"Hello"` and `"World"` using the appropriate function or operator. Replace the `______` with the correct code.
+
+#### Output
+
+:::{.panel-tabset}
+
+## R
+
+```{webr}
+#| exercise: ex_concat_r
+greeting <- "Hello"
+target <- "World"
+______
+```
+
+```{webr}
+#| exercise: ex_concat_r
+#| check: true
+expected <- "Hello World"
+if (identical(.result, expected)) {
+  list(correct = TRUE, message = "Nice work on concatenation!")
+} else {
+  list(correct = FALSE, message = "That's not quite right, please try again.")
+}
+```
+
+## Python
+
+```{pyodide}
+#| exercise: ex_concat_py
+greeting = "Hello"
+target = "World"
+______
+```
+
+```{pyodide}
+#| exercise: ex_concat_py
+#| check: true
+expected = "Hello World"
+feedback = None
+if (result == expected):
+    feedback = { "correct": True, "message": "Nice work on concatenation!" }
+else:
+    feedback = { "correct": False, "message": "That's not quite right, please try again." }
+feedback
+```
+
+:::
+
+---
+
+## 3. String Splitting
+
+### Explanation
+
+#### Python Example
+
+```python
+sentence = "Romeo, Romeo! wherefore art thou Romeo?"
+split_words = sentence.split()
+print(split_words)
+# Expected: ['Romeo,', 'Romeo!', 'wherefore', 'art', 'thou', 'Romeo?']
+```
+
+#### R Example
+
+```r
+sentence <- "Romeo, Romeo! wherefore art thou Romeo?"
+split_words <- strsplit(sentence, split=" ")
+split_words
+# Expected: list(c("Romeo,", "Romeo!", "wherefore", "art", "thou", "Romeo?"))
+```
+
+### Interactive Exercise
+
+Split the sentence `"Romeo, Romeo! wherefore art thou Romeo?"` into words. Replace the `______` with the correct code.
+
+#### Output
+
+:::{.panel-tabset}
+
+## R
+
+```{webr}
+#| exercise: ex_split_r
+sentence <- "Romeo, Romeo! wherefore art thou Romeo?"
+______
+```
+
+```{webr}
+#| exercise: ex_split_r
+#| check: true
+expected <- strsplit(sentence, split=" ")[[1]]
+if (identical(.result, expected)) {
+  list(correct = TRUE, message = "Great job splitting the sentence!")
+} else {
+  list(correct = FALSE, message = "The split did not match the expected output.")
+}
+```
+
+## Python
+
+```{pyodide}
+#| exercise: ex_split_py
+sentence = "Romeo, Romeo! wherefore art thou Romeo?"
+______
+```
+
+```{pyodide}
+#| exercise: ex_split_py
+#| check: true
+expected = ["Romeo,", "Romeo!", "wherefore", "art", "thou", "Romeo?"]
+feedback = None
+if (result == expected):
+    feedback = { "correct": True, "message": "Great job splitting the sentence!" }
+else:
+    feedback = { "correct": False, "message": "The split did not match the expected output." }
+feedback
+```
+
+:::
+
+---
+
+## 4. Checking If a String Is a Proper Noun
+
+### Explanation
+
+A **proper noun** here is defined as a word that starts with a capital letter (A–Z) followed by lowercase letters (a–z).
+
+#### Python Example
+
+```python
+def is_proper_noun(word):
+    if len(word) == 0:
+        return False
+    return word[0].isupper() and word[1:].islower()
+
+# Tests:
+print(is_proper_noun("Romeo"))   # True
+print(is_proper_noun("ROMEO"))   # False
+print(is_proper_noun("romance")) # False
+```
+
+#### R Example
+
+```r
+is_proper_noun <- function(word) {
+  if (nchar(word) == 0) {
+    return(FALSE)
+  }
+  first_char <- substr(word, 1, 1)
+  rest_chars <- substr(word, 2, nchar(word))
+  return(grepl("^[A-Z]$", first_char) && grepl("^[a-z]*$", rest_chars))
+}
+
+# Tests:
+is_proper_noun("Romeo")   # TRUE
+is_proper_noun("ROMEO")   # FALSE
+is_proper_noun("romance") # FALSE
+```
+
+### Interactive Exercise
+
+Implement the function `is_proper_noun` to determine if a given word is a proper noun. Replace the `______` with your implementation.
+
+#### Output
+
+:::{.panel-tabset}
+
+## R
+
+```{webr}
+#| exercise: ex_proper_r
+is_proper_noun <- function(word) {
+  # Write your code here
+  ______
+}
+
+# Test the function
+result <- c(is_proper_noun("Romeo"), is_proper_noun("ROMEO"), is_proper_noun("romance"))
+result
+```
+
+```{webr}
+#| exercise: ex_proper_r
+#| check: true
+expected <- c(TRUE, FALSE, FALSE)
+if (identical(.result, expected)) {
+  list(correct = TRUE, message = "Well done on implementing is_proper_noun!")
+} else {
+  list(correct = FALSE, message = "The function output did not match the expected result.")
+}
+```
+
+## Python
+
+```{pyodide}
+#| exercise: ex_proper_py
+def is_proper_noun(word):
+    # Write your code here
+    ______
+
+# Test the function
+result = [is_proper_noun("Romeo"), is_proper_noun("ROMEO"), is_proper_noun("romance")]
+result
+```
+
+```{pyodide}
+#| exercise: ex_proper_py
+#| check: true
+expected = [True, False, False]
+feedback = None
+if (result == expected):
+    feedback = { "correct": True, "message": "Well done on implementing is_proper_noun!" }
+else:
+    feedback = { "correct": False, "message": "The function output did not match the expected result." }
+feedback
+```
+
+:::
