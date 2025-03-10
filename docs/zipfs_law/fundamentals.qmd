@@ -1,0 +1,11 @@
+---
+title: Fundamentals of Text Manipulation
+subtitle: Basic demonstrations of array indexing, string concatenation, splitting,
+  and identifying capitalized words, in both Python and R.
+format: live-html
+engine: knitr
+webr:
+  packages:
+    - dplyr
+toc: true
+---
