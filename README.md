@@ -87,6 +87,6 @@ Have you ever paused to ponder which words are the most common ones in the vast 
 ```
 
 ## 3. Publish website:
-For repeatability, this project uses continuous deployment so every push to main republishes automatically.To publish the website, you can simply push to the main branch and it will be available under (https://michaelbennieufl.github.io/Smackademia-Computational-Linguistics/)[https://michaelbennieufl.github.io/Smackademia-Computational-Linguistics/]
+For repeatability, this project uses continuous deployment so every push to main republishes automatically.To publish the website, you can simply push to the main branch and it will be available under https://michaelbennieufl.github.io/Smackademia-Computational-Linguistics
 
 
